@@ -1,0 +1,508 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Ticket Booking</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins',sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+
+        nav {
+            flex: 1;
+            text-align: right;
+        }
+
+            nav ul {
+                display: inline-block;
+                list-style-type: none;
+            }
+
+                nav ul li {
+                    display: inline-block;
+                    margin-right: 20px;
+                }
+
+        a {
+            text-decoration: none;
+            color: #555;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .col-2 {
+            flex-basis: 50%;
+            min-width: 300px;
+        }
+
+            .col-2 img {
+                max-width: 100%;
+                padding: 50px 0;
+            }
+
+            .col-2 h1 {
+                font-size: 50px;
+                line-height: 60px;
+                margin: 25px 0;
+            }
+
+        .btn {
+            display: inline-block;
+            background: #453bff;
+            color: #fff;
+            padding: 8px 30px;
+            margin: 30px 0;
+            border-radius: 30px;
+            transition: background 0.5s;
+        }
+
+        .Header {
+            background: radial-gradient(#fff,#d6e9ff);
+        }
+
+            .header .row {
+                margin-top: 70px;
+            }
+
+        .btn:hover {
+            background: #563434;
+        }
+
+
+        .footer {
+            background: #000;
+            color: #8a8a8a;
+            font-size: 14px;
+            padding: 60px 0 20px;
+        }
+
+            .footer p {
+                color: #8a8a8a;
+            }
+
+            .footer h3 {
+                color: #fff;
+                margin-bottom: 20px;
+            }
+
+        .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col-1 {
+            flex-basis: 30%;
+        }
+
+        .footer-col-2 {
+            flex: 1;
+            text-align: center;
+        }
+
+            .footer-col-2 img {
+                width: 180px;
+                margin-bottom: 20px;
+            }
+
+        .footer-col-3, .footer-col-4 {
+            flex-basis: 12%;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .app-logo {
+            margin: top 20px;
+        }
+
+            .app-logo img {
+                width: 140px;
+            }
+
+        .footerhr {
+            border: none;
+            background: #b5b5b5;
+            height: 1px;
+            margin: 20px 0;
+        }
+
+        .copyright {
+            text-align: center;
+        }
+
+        #btn-decrease {
+            font-size: 12px;
+        }
+
+        #btn-orig {
+            font-size: 14px;
+        }
+
+        #btn-increase {
+            font-size: 12px;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+    <div class="Header">
+
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="/lib/train-16-512.png" alt="" width="100px" height="100px">
+                </div>
+                <div>
+                    <h1 id="test">Train Ticket Booking</h1>
+                </div>
+
+                <nav>
+                    <ul>
+
+                        <li><button id="btn-decrease" class="btn btn-default" type="button"><i class="fa fa-font" aria-hidden="true"></i>-</button></li>
+                        <li><button id="btn-orig" class="btn btn-default" type="button"><i class="fa fa-font" aria-hidden="true"></i></button></li>
+                        <li><button id="btn-increase" class="btn btn-default" type="button"><i class="fa fa-font" aria-hidden="true"></i>+</button></li>
+
+
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Products</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Account</a></li>
+                    </ul>
+                </nav>
+                <img src="/cart.png" width="30px" height="30px">
+            </div>
+        </div>
+    </div>
+    <div>
+        @*  <div class="row"> *@
+        <div class="container">
+            <div class="row">
+                <h4>User Detail</h4>
+                <div class="col-5">
+                    @* <label for="Enter the Username" class="form-label">USERNAME</label> *@
+                    <input type="email" class="form-control " placeholder="USERNAME">
+                </div>
+            </div>
+            <br />
+
+            <div class="row">
+                <h4>Contact Detail</h4>
+                <div class="col-5">
+                    @*  <label for="Email" class="form-label">Email</label> *@
+                    <input type="email" class="form-control" placeholder="EMAIL">
+                </div>
+                <div class="col-5">
+                    @* <label for="Enter the Mobile No" class="form-label">Phone Number</label> *@
+                    <input type="number" class="form-control" placeholder="MOBILE NO">
+                </div>
+            </div>
+            <br />
+            <br />
+
+            <div class="row">
+                <h4>Train Detail</h4>
+                <div class="col-5">
+                    <label for="From" class="form-label">From</label>
+                    @* <input type="email" class="form-control"> *@
+                </div>
+                <div class="col-5">
+                    <label for="To" class="form-label">To</label>
+                    @* <input type="number" class="form-control"> *@
+                </div>
+            </div>
+            <hr />
+            <br />
+
+            <div class="row">
+                <div class="col-4">
+                    <label for="Email" class="form-label">class</label>
+                    @* <input type="email" class="form-control"> *@
+                </div>
+                <div class="col-4">
+                    <label for="Price" class="form-label">price</label>
+                    <input type="number" class="form-control" id="price">
+                </div>
+                <div class="col-4">
+                    <label for="Enter the Mobile No" class="form-label">Date of travel</label>
+                    @* <input type="number" class="form-control"> *@
+                </div>
+            </div>
+            <hr />
+            <br />
+
+            <div class="row">
+                <h4>Passenger Detail</h4>
+                <div class="col-3">
+                    @* <label for="Enter Ypour Name" class="form-label">Name</label> *@
+                    <input type="text" class="form-control" id="name" placeholder="Passenger Name">
+                </div>
+                <div class="col-3">
+                    @*  <label for="Enter Ypour Age" class="form-label">Age</label> *@
+                    <input type="number" class="form-control" id="age" placeholder="Age">
+                </div>
+                <div class="col-3">
+                    <div class="dropdown">
+                        @*  <label for="Gender" class="form-label">Gender</label>
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        CHOOSE THE GENDER
+
+                        </button> *@
+                        @* <label for="Gender" class="form-label">Gender</label> *@
+                        <select class="form-control" id="gender" name="Gender" placeholder="Gender">
+
+                            <option value="">Gender</option>
+                            <option value="MALE">MALE</option>
+                            <option value="FEMALE">FEMALE</option>
+                            <option value="OTHER">OTHER</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="dropdown">
+                        @* <label for="SEAT" class="form-label">SEAT REFERANCE</label>
+
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        CHOOSE THE SEAT REFENECE
+
+                        </button> *@
+                        @* <label for="SEAT" class="form-label">SEAT REFERANCE</label> *@
+                        <select class="form-control" id="seat" name="Seat" placeholder="berth">
+
+                            <option value="">Seat Reference</option>
+                            <option value="UPPER">UPPER</option>
+                            <option value="LOWER">LOWER</option>
+                            <option value="MIDDLE">MIDDLE</option>
+                            <option value="SIDE UPPER">SIDE UPPER</option>
+                            <option value="SIDE LOWER">SIDE LOWER</option>
+                            <option value="WINDOW">WINDOW</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+            <br />
+
+
+            <div class="col-2">
+                <button type="button" class="btn btn-primary" id="TotalFair">
+                    Add Passenger
+                </button>
+            </div>
+            <br />
+            <hr />
+            <h3>Bill Details</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Passenger Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Berth</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="billItems">
+                </tbody>
+            </table>
+            <h4>Total: <span id="totalAmount">0</span></h4>
+            <div class="col-2">
+                <button type="button" class="btn btn-secondary" id="calculateTotal">Calculate Total</button>
+            </div>
+            <h4>Payment Detail</h4>
+            <div class="row">
+                <div class="col-2">
+                    @* <label for="From" class="form-label"></label> *@
+
+                    <input type="number" class="form-control" placeholder="CARD NUMBER">
+                </div>
+
+                <div class="col-2">
+                    @* <label for="From" class="form-label"></label> *@
+
+
+                    <input type="text" class="form-control" placeholder="CARDHOLDER NAME">
+                </div>
+                <div class="col-2">
+                    @* <label for="From" class="form-label"></label> *@
+
+
+                    <input type="number" class="form-control" placeholder="EXPIRY MONTH">
+                </div>
+                <div class="col-2">
+                    @* <label for="From" class="form-label"></label> *@
+
+
+                    <input type="number" class="form-control" placeholder="EXPIRY YEAR">
+                </div>
+                <div class="col-2">
+                    @* <label for="From" class="form-label"></label> *@
+
+                    <input type="number" class="form-control" placeholder="CVV">
+                </div>
+                <div class="col-2">
+                    @* <label for="From" class="form-label"></label> *@
+
+                    <button class="btn-outline-primary form-control">CLEAR</button>
+                </div>
+
+            </div>
+            <br />
+            <br />
+            <div class="row">
+
+                <div class="col-4">
+                    @* <label for="From" class="form-label"></label> *@
+
+                    <button class="btn-outline-primary form-control" onclick="window.print()">Submit & Pay</button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <script>
+            $(document).ready(function () {
+                let room = [];
+
+                // Add Amount to the bill
+                $("#TotalFair").click(function () {
+                    const PName = $("#name").val();
+                    const Age = $("#age").val();
+                    const Gender = $("#gender").val();
+                    const Berth = $("#seat").val();
+                    const TPrice = parseFloat($("#price").val());
+                    const data = { "name": PName + "", "price": TPrice + "" };
+
+
+                    if (PName && Age && Gender && Berth && !isNaN(TPrice)) {
+                        room.push({
+                            name: PName, age: Age, gender: Gender,
+                            berth: Berth, price: TPrice
+                        });
+                        $("#billItems").append(`<tr><td>${PName}</td><td>${Age}</td><td>${Gender}</td><td>${Berth}</td><td>${TPrice.toFixed(2)}</td></tr>`);
+                        $("#name").val("");
+                        $("#age").val("");
+                        $("#gender").val("");
+                        $("#seat").val("");
+                        $("#price").val("");
+                    }
+
+
+                });
+
+                // Calculate the total bill
+                $("#calculateTotal").click(function () {
+                    let total = 0;
+                    for (const item of room) {
+                        total += item.price;
+                    }
+                    $("#totalAmount").text(total.toFixed(2));
+                });
+            });
+        </script>
+
+
+        @* </div> *@
+
+    </div>
+
+
+    <!-- ---------------Footer------------------------- -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and ios Mobile Phone.</p>
+                    <div class="app-logo">
+                        <img src="/lib/play-store.png" alt="">
+                        <img src="/lib/app-store.png" alt="">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="/lib/train-16-512.png" alt="">
+                    <p>Our Purpose Is To Sustainably make the pleasure and benfits of Sports Accessible to the Many.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>You Tube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <br>
+            <p class="copyright">Copyright 2023 - Rupesh Ranjan</p>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
