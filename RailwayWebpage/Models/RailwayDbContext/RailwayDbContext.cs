@@ -14,8 +14,10 @@ namespace RailwayWebpage.Models.RailwayDbContext
         public DbSet<From> froms { get; set; }
         public DbSet<To> tos { get; set; }
         public DbSet<TrainName> trainnames { get; set; }
-        
-        public DbSet<TPrice> tprices { get; set; }
+
+        public DbSet<Seat> seats { get; set; }
+        public DbSet<Price> prices { get; set; }
+
         public DbSet<PassengerDetails> passengerdetailes { get; set; }
     }
 }

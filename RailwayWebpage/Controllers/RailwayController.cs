@@ -31,11 +31,17 @@ namespace RailwayWebpage.Controllers
             var t2 = context.trainnames.Where(e => e.To.Id == id).ToList();
             return new JsonResult(t2);
         }
-        
-        public JsonResult TPrice(int? id)
+
+        public JsonResult Seat()
         {
-            var t4 = context.tprices.Where(e => e.TrainName.Id == id).ToList();
-            return new JsonResult(t4);
+            var cnt1 = context.seats.ToList();
+            return new JsonResult(cnt1);
+
+        }
+        public JsonResult Price(int? id)
+        {
+            var st1 = context.prices.Where(e => e.Seat.Id == id).ToList();
+            return new JsonResult(st1);
         }
         public IActionResult Index()
         {
@@ -75,6 +81,7 @@ namespace RailwayWebpage.Controllers
             
         public IActionResult SearchTrain()
         {
+            
             return View();
         }
         public IActionResult TrainInfo()

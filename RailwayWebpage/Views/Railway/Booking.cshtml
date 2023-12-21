@@ -1,5 +1,6 @@
 ﻿@model RailwayWebpage.Models.Railway.PassengerDetails
 
+
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -256,25 +257,30 @@
         <br />
         <hr />
         <div class="col">
+           
+            
             <div class="card" id="GFG2" style="border-radius: 15px ;">
                 <h5 class="card-header">Train Information</h5>
-                <div class="card-body p-4">
+                <div class="card-body p-3">
                     <div class="row">
                         <div class="col-4">
                             <label for="From" class="form-label">From:- </label>
-                            <input type="text" class="form-control"
-                                   style="display:none">
+                            <span id="from"></span>
+                            @* <input type="text" class="form-control" id="From"
+                                   style="display:none"> *@
                         </div>
                         <div class="col-4">
                             <label for="To" class="form-label">To:- </label>
-                            <input type="text" class="form-control"
-                                   style="display:none">
+                            <span id="to"></span>
+                            @* <input type="text" class="form-control" id="To"
+                                   style="display:none"> *@
                             @* <input type="number" class="form-control"> *@
                         </div>
                         <div class="col-4">
                             <label for="To" class="form-label">Train Name:- </label>
-                            <input type="text" class="form-control"
-                                   style="display:none">
+                            @* <input type="text" class="form-control" id="Trainno"
+                                   style="display:none"> *@
+                            <span id="Trainno"></span>
                             @* <input type="number" class="form-control"> *@
                         </div>
                     </div>
@@ -282,20 +288,23 @@
                     <div class="row">
                         <div class="col-4">
                             <label for="class" class="form-label">class:-</label>
-                            <input type="text" class="form-control"
-                                   style="display:none">
+                            <span id="Seat"></span>
+                            @* <input type="text" class="form-control" id="Seat"
+                                   style="display:none"> *@
                             @* <input type="email" class="form-control"> *@
                         </div>
                         <div class="col-4">
                             <label for="Price" class="form-label">price</label>
-                             <input type="number" class="form-control"
-                            id="price">
+                            <span id="price"></span>
+                             @* <input type="number" class="form-control"
+                            id="price"> *@
                         </div>
                         <div class="col-4">
                             <label for="Enter the Mobile No"
                                    class="form-label">Date of travel</label>
-                            <input type="date" class="form-control"
-                                   style="display:none">
+                            <span id="travel"></span>
+                            @* <input type="date" class="form-control" id="travel"
+                                   style="display:none"> *@
                             @* <input type="number" class="form-control"> *@
                         </div>
                     </div>
@@ -425,8 +434,8 @@
                         <div class="col-12">
                             @* <label for="From" class="form-label"></label> *@
 
-                            <button class="btn-primary form-control">
-                                Pay
+                        <button class="btn-primary form-control" id="submitForm">
+                                Pay now
                             </button>
                         </div>
 
@@ -434,18 +443,38 @@
 
                 </div>
             </div>
-
-        
+            
         
        
         <br />
 
-        <button type="button" class="btn btn-success">Save&Continue</button>
+        <button type="button" class="btn btn-success" onclick="window.print()">Save&Continue</button>
     </div>
 
     <script>
         $(document).ready(function () {
             let room = [];
+            debugger
+
+            var dt = localStorage.getItem("userData");
+
+            console.log( JSON.parse(dt));
+            dt= JSON.parse(dt);
+            var from=document.getElementById('from');
+            var to=document.getElementById('to');
+            var trainno = document.getElementById('Trainno');
+            var seat = document.getElementById('Seat');
+            var price = document.getElementById('price');
+            var date = document.getElementById('travel');
+            
+            from.innerHTML = dt[0].from;
+            to.innerHTML = dt[0].to;
+            trainno.innerHTML = dt[0].trainno;
+            seat.innerHTML = dt[0].seat;
+            price.innerHTML = dt[0].price;
+            date.innerHTML = dt[0].date;
+
+
 
             // Add Amount to the bill
             $("#TotalFair").click(function () {
@@ -483,7 +512,12 @@
                 }
                 $("#totalAmount").text(total.toFixed(2));
             });
+
         });
+        $("#submitForm").click(function () {
+            alert("payment was successful.");
+        });
+
     </script>
 
 
